@@ -1,8 +1,10 @@
 function tenDigits() {
 	var phone = $("#phone").val();
-	if (phone.length < 10){
+	if (phone.length < 10 || isNaN(phone)){
+		document.getElementById("phone").style.borderColor = "red";
 		document.getElementById("phone").style.backgroundColor = "#f37b7b";
 	} else {
+		document.getElementById("phone").style.borderColor = "green";
 		document.getElementById("phone").style.backgroundColor = "#a0dd98";
 		}
 };
@@ -17,10 +19,11 @@ function validateForm() {
 	} else if (address.length === 0) {
 		document.getElementById("name").style.backgroundColor = "#a0dd98";
 		document.getElementById("address").style.backgroundColor = "#f37b7b";
-	} else if (phone.length !== 10) {
+	} else if (phone.length !== 10 || isNaN(phone)) {
 		document.getElementById("name").style.backgroundColor = "#a0dd98";
 		document.getElementById("address").style.backgroundColor = "#a0dd98";
 		document.getElementById("phone").style.backgroundColor = "#f37b7b";
+		alert('Please enter only numbers in the phone number field. Do not use () or -.');
 	} else if (email.indexOf('@') < 1) {
 		document.getElementById("name").style.backgroundColor = "#a0dd98";
 		document.getElementById("address").style.backgroundColor = "#a0dd98";
